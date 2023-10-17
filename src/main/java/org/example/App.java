@@ -1,5 +1,6 @@
 package org.example;
 
+import org.apache.lucene.analysis.ru.RussianAnalyzer;
 import smile.classification.KNN;
 import smile.classification.SVM;
 import smile.data.DataFrame;
@@ -41,11 +42,14 @@ public class App {
         DataFrame test = Read.csv("src/main/resources/test.csv");
         System.out.println(df.size());
 
+        RussianAnalyzer russianAnalyzer = new RussianAnalyzer();
+        System.out.println(russianAnalyzer.getStopwordSet());
 
         for (String s : df.column("V2").toStringArray()) {
             s = s.replaceAll("[^\u0400-\u04FF]", " ").replaceAll("[ \\t]{2,}", " ").toLowerCase();
             boolean prevIsNot = false;
             for (String w : s.split(" ")) {
+
                 if(w.equals("не")){
                     prevIsNot = true;
                     continue;
@@ -53,7 +57,7 @@ public class App {
                 if(prevIsNot && !dictionary.containsKey("не " + w)){
                     prevIsNot = false;
 //                    w = "не " + w;
-                    System.out.println("не " + w);
+//                    System.out.println("не " + w);
 //                    int i = scanner.nextInt();
 //                    if(i==1){
 //                        positive.add("не " + w);
