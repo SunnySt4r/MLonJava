@@ -26,10 +26,10 @@ public class ThreeWayMNBTrainerRunner {
 
         String outputModel = "src/main/resources/models/sentiment.model";
 
-        ThreeWayMNBTrainer threeWayMNBTrainer = new ThreeWayMNBTrainer(outputModel);
+        ThreeWayMNBTrainer threeWayMNBTrainer;
 
         System.out.println("Adding training instances");
-        int k = 5;
+        int k = 10;
 
         DataFrame random =  train.stream().skip(1)
                 .map(tuple -> {
@@ -100,40 +100,6 @@ public class ThreeWayMNBTrainerRunner {
                         return res;
                     }).collect(DataFrame.Collectors.collect());
         }
-
-
-//        DataFrame d =  train.stream().skip(1)
-//                .map(tuple -> {
-//                    SentimentClass sentiment;
-//                    String s = tuple.getString("V2");
-//                    String[] words = ((s != null)? s : "").split(" ");
-//                    if(tuple.get("V3").toString().equals("1")){
-//                        sentiment = SentimentClass.POSITIVE;
-//                        threeWayMNBTrainer.addTrainingInstance(sentiment, words);
-//                    }else{
-//                        sentiment = SentimentClass.NEGATIVE;
-//                    }
-//                    threeWayMNBTrainer.addTrainingInstance(sentiment, words);
-//                    Tuple res = Tuple.of(new Object[]{tuple.get("V1") , (s != null)? s : "", tuple.get("V3")},
-//                            new StructType(
-//                                    new StructField("id", DataTypes.IntegerObjectType),
-//                                    new StructField("text_vec", DataTypes.StringType),
-//                                    new StructField("sentiment", DataTypes.IntegerObjectType)));
-//
-//                    return res;
-//                }).collect(DataFrame.Collectors.collect());
-//
-//        System.out.println(d);
-//        kaggleCSVReaderThreeWay.close();
-
-//        System.out.println("Added " + train.size() + " instances");
-//
-//        System.out.println("Training and saving Model");
-//        threeWayMNBTrainer.trainModel();
-//        threeWayMNBTrainer.saveModel();
-//
-//        System.out.println("Testing model");
-//        threeWayMNBTrainer.testModel();
 
         System.out.println(test1);
         test1 = test1.stream()

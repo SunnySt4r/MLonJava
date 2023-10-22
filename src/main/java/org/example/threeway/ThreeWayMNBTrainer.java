@@ -48,8 +48,9 @@ public class ThreeWayMNBTrainer {
         Evaluation eTest = new Evaluation(dataRaw);
         eTest.evaluateModel(classifier, dataRaw);
         eTest.areaUnderROC(1);
-//        String strSummary = eTest.toSummaryString();
+        String strSummary = eTest.toSummaryString();
         System.out.println(eTest.areaUnderROC(1));
+        System.out.println(strSummary);
     }
 
     public void showInstances() {

@@ -75,7 +75,11 @@ public class TextModifier {
         s = s.replaceAll(" не ", " не_")
                 .replaceAll(" никогда ", " никогда_")
                 .replaceAll(" ни ", " ни_")
-                .replaceAll(" нет ", " нет_");
+                .replaceAll(" нет ", " нет_")
+                .replaceAll("^не ", "не_")
+                .replaceAll("^никогда ", "никогда_")
+                .replaceAll("^ни ", "ни_")
+                .replaceAll("^нет ", "нет_");
         return s;
     }
 
