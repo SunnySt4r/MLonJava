@@ -17,10 +17,6 @@ import java.util.Random;
 
 public class ThreeWayMNBTrainerRunner {
     public static void main(String[] args) throws Exception {
-//        KaggleCSVReaderThreeWay kaggleCSVReaderThreeWay = new KaggleCSVReaderThreeWay();
-//        kaggleCSVReaderThreeWay.readKaggleCSV("kaggle/train.tsv");
-//        KaggleCSVReaderThreeWay.CSVInstanceThreeWay csvInstanceThreeWay;
-
         DataFrame train = Read.csv("src/main/resources/changed/train.csv");
         DataFrame test = Read.csv("src/main/resources/changed/test.csv");
 

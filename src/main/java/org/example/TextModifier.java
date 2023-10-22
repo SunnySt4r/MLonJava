@@ -40,11 +40,6 @@ public class TextModifier {
                     String s = tuple.getString(column);
                     s = removeNeedless(s);
                     s = applyNot(s);
-                    try {
-                        s = analyze(s);
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
                     s = s.replaceAll("\\s.\\s", " ")
                             .replaceAll("[ \\t]{2,}", " ");
                     Tuple res;

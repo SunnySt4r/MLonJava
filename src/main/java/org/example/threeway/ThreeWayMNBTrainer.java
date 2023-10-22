@@ -2,12 +2,16 @@ package org.example.threeway;
 
 import com.google.inject.internal.util.Join;
 import org.example.SentimentClass;
+import weka.classifiers.Classifier;
 import weka.classifiers.bayes.NaiveBayesMultinomialText;
 import weka.classifiers.evaluation.Evaluation;
+import weka.classifiers.meta.AdaBoostM1;
+import weka.classifiers.pmml.consumer.SupportVectorMachineModel;
 import weka.core.Attribute;
 import weka.core.DenseInstance;
 import weka.core.Instance;
 import weka.core.Instances;
+import weka.core.tokenizers.WordTokenizer;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -36,7 +40,7 @@ public class ThreeWayMNBTrainer {
         double[] instanceValue = new double[dataRaw.numAttributes()];
         instanceValue[0] = dataRaw.attribute(0).addStringValue(Join.join(" ", words));
         instanceValue[1] = sentiment.getScore();
-        dataRaw.add(new DenseInstance(1, instanceValue));
+        dataRaw.add(new DenseInstance(1.0, instanceValue));
         dataRaw.setClassIndex(1);
     }
 
@@ -47,10 +51,8 @@ public class ThreeWayMNBTrainer {
     public void testModel() throws Exception {
         Evaluation eTest = new Evaluation(dataRaw);
         eTest.evaluateModel(classifier, dataRaw);
-        eTest.areaUnderROC(1);
-        String strSummary = eTest.toSummaryString();
         System.out.println(eTest.areaUnderROC(1));
-        System.out.println(strSummary);
+        System.out.println(eTest.errorRate());
     }
 
     public void showInstances() {
