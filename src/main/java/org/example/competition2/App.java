@@ -1,4 +1,4 @@
-package org.example;
+package org.example.competition2;
 
 import org.apache.lucene.analysis.CharArraySet;
 import org.apache.lucene.analysis.ru.RussianAnalyzer;
@@ -49,8 +49,8 @@ public class App {
     static Map<String, String> dictionary = new HashMap<>();
 
     public static void main( String[] args ) throws IOException, URISyntaxException{
-        DataFrame train = Read.csv("src/main/resources/changed/train.csv");
-        DataFrame test = Read.csv("src/main/resources/changed/test.csv");
+        DataFrame train = Read.csv("src/main/resources/competition2/changed/train.csv");
+        DataFrame test = Read.csv("src/main/resources/competition2/changed/test.csv");
         BagOfWords bagOfWords = BagOfWords.fit(train, s -> s.split(" "), 1000, "V2");
 
         DataFrame word2vec = train.stream().skip(2)
@@ -110,7 +110,7 @@ public class App {
 //                })
 //                .collect(DataFrame.Collectors.collect());
 //
-//        Write.csv(result, Paths.get("src/main/resources/changed/result.csv"));
+//        Write.csv(result, Paths.get("src/main/resources/competition2/changed/result.csv"));
 
 
 //        word2vec = DataFrame.

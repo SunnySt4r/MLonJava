@@ -1,6 +1,4 @@
-package org.example.threeway;
-
-import org.example.SentimentClass;
+package org.example.competition2.threeway;
 
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;

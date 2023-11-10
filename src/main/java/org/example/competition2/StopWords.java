@@ -1,4 +1,4 @@
-package org.example;
+package org.example.competition2;
 
 import java.util.Arrays;
 import java.util.HashSet;

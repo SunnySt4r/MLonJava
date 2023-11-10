@@ -1,20 +1,15 @@
-package org.example.threeway;
+package org.example.competition2.threeway;
 
 import com.google.inject.internal.util.Join;
-import org.example.SentimentClass;
-import weka.classifiers.Classifier;
+import org.example.competition2.SentimentClass;
 import weka.classifiers.bayes.NaiveBayesMultinomialText;
 import weka.classifiers.evaluation.Evaluation;
-import weka.classifiers.meta.AdaBoostM1;
-import weka.classifiers.pmml.consumer.SupportVectorMachineModel;
 import weka.core.Attribute;
 import weka.core.DenseInstance;
 import weka.core.Instance;
 import weka.core.Instances;
-import weka.core.tokenizers.WordTokenizer;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class ThreeWayMNBTrainer {
     private NaiveBayesMultinomialText classifier;

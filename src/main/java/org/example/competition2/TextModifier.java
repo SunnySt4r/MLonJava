@@ -1,4 +1,4 @@
-package org.example;
+package org.example.competition2;
 
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.CharArrayMap;
@@ -19,15 +19,15 @@ import java.util.*;
 
 public class TextModifier {
     public static void main(String[] args) throws IOException, URISyntaxException {
-        DataFrame df = Read.csv("src/main/resources/train.csv");
-        DataFrame test = Read.csv("src/main/resources/test.csv");
+        DataFrame df = Read.csv("src/main/resources/competition2/train.csv");
+        DataFrame test = Read.csv("src/main/resources/competition2/test.csv");
 
         DataFrame changedTrain = changeAllStrings(df, true);
         DataFrame changedTest = changeAllStrings(test, false);
 
 
-        Write.csv(changedTrain, Paths.get("src/main/resources/changed/train.csv"));
-        Write.csv(changedTest, Paths.get("src/main/resources/changed/test.csv"));
+        Write.csv(changedTrain, Paths.get("src/main/resources/competition2/changed/train.csv"));
+        Write.csv(changedTest, Paths.get("src/main/resources/competition2/changed/test.csv"));
     }
 
     private static DataFrame changeAllStrings(DataFrame df, boolean isTrain){

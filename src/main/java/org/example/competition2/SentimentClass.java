@@ -1,4 +1,4 @@
-package org.example;
+package org.example.competition2;
 
 public enum SentimentClass {
     NEGATIVE(0),

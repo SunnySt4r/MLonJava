@@ -1,7 +1,7 @@
-package org.example.threeway;
+package org.example.competition2.threeway;
 
 
-import org.example.SentimentClass;
+import org.example.competition2.SentimentClass;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

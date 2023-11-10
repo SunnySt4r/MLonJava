@@ -1,11 +1,9 @@
-package org.example.threeway;
+package org.example.competition2.threeway;
 
 
-import org.apache.commons.csv.CSVFormat;
-import org.example.SentimentClass;
+import org.example.competition2.SentimentClass;
 import smile.data.DataFrame;
 import smile.data.Tuple;
-import smile.data.type.DataType;
 import smile.data.type.DataTypes;
 import smile.data.type.StructField;
 import smile.data.type.StructType;
@@ -13,7 +11,6 @@ import smile.io.Read;
 import smile.io.Write;
 
 import java.nio.file.Paths;
-import java.util.Random;
 
 public class ThreeWayMNBTrainerRunner {
     public static void main(String[] args) throws Exception {
